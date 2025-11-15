@@ -1,0 +1,480 @@
+/* ==========================
+   RESET & DASAR
+========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #1e1e2f, #2b2b3c);
+  color: #f0f0f0;
+}
+
+/* Hilangkan jarak kosong global */
+body, header, nav, main {
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================
+   HEADER
+========================== */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0;
+}
+
+header img {
+  height: 50px;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #f5c542;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-center {
+  flex: 1;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+#current-date {
+  font-size: 1rem;
+  color: #f0f0f0;
+  font-weight: 500;
+}
+
+/* ==========================
+   NAVBAR
+========================== */
+.navbar {
+  margin: 0;
+  padding: 0.6rem 0;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.navbar a {
+  color: #f5c542;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #fff;
+}
+
+/* ==========================
+   KONTEN TENGAH
+========================== */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.content p {
+  font-size: 1.1rem;
+  max-width: 500px;
+  line-height: 1.6;
+  color: #cfcfcf;
+}
+
+/* ==========================
+   TOMBOL LOGIN
+========================== */
+.btn-login {
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 30px;
+  background: #f5c542;
+  color: #1e1e2f;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 4px 10px rgba(245, 197, 66, 0.4);
+}
+
+.btn-login:hover {
+  background: #d9aa2e;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 15px rgba(245, 197, 66, 0.5);
+}
+
+/* ==========================
+   FOOTER
+========================== */
+footer {
+  background: rgba(255, 255, 255, 0.05);
+  text-align: center;
+  padding: 1px;
+  font-size: 0.9rem;
+  color: #aaa;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================
+   LOGIN PAGE
+========================== */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1e1e2f, #2b2b3c);
+  color: #f0f0f0;
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #f5c542;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #f0f0f0;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  border-color: #f5c542;
+  outline: none;
+  box-shadow: 0 0 8px rgba(245, 197, 66, 0.5);
+}
+
+.note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.note a {
+  color: #f5c542;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.note a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================
+   FORM / KARTU / DROPDOWN
+========================== */
+.SPP-con {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  margin: 1rem auto 2rem auto; /* naikkan sedikit dari versi sebelumnya */
+}
+
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* CARD FORM */
+.card {
+  background-color: #2c2c3c;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 600px;
+  margin: 15px auto;
+}
+
+.card h3 {
+  color: #f5c542;
+  margin-bottom: 10px;
+}
+
+/* Rekap container & card */
+.rekap-container {
+  margin-top: -25px; /* kartu rekap dinaikkan sedikit */
+  padding-top: 0;
+}
+
+.rekap-card {
+  margin-top: 0;
+  position: relative;
+  top: -20px; /* efek naik */
+}
+
+/* ==========================
+   DROPDOWN STYLE
+========================== */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.dropbtn {
+  background-color: #f5c542;
+  color: #1e1e2f;
+  font-weight: 600;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(245, 197, 66, 0.3);
+}
+
+.dropbtn:hover {
+  background-color: #d4a92d;
+  transform: translateY(-2px);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #2c2c3c;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  margin-top: 6px;
+  padding: 10px;
+  width: 100%;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-5px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.dropdown-content a,
+.dropdown-content label {
+  display: block;
+  text-decoration: none;
+  color: #f0f0f0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.dropdown-content a:hover,
+.dropdown-content label:hover {
+  background-color: rgba(245, 197, 66, 0.15);
+  color: #fff;
+}
+
+.dropdown-content hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 8px 0;
+}
+
+.dropdown-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 5px;
+}
+
+.dropdown-actions a {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 6px 0;
+  transition: 0.2s;
+}
+
+.dropdown-actions .ok {
+  background-color: #f5c542;
+  color: #1e1e2f;
+}
+
+.dropdown-actions .ok:hover {
+  background-color: #d4a92d;
+}
+
+.dropdown-actions .reset {
+  background-color: #44445a;
+  color: #f0f0f0;
+}
+
+.dropdown-actions .reset:hover {
+  background-color: #5a5a75;
+}
+
+/* ==========================
+   SUBMIT BUTTON STYLE
+========================== */
+input[type="submit"], button[type="submit"] {
+  background-color: #f5c542;
+  color: #1e1e2f;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(245, 197, 66, 0.4);
+  display: inline-block;
+}
+
+input[type="submit"]:hover, button[type="submit"]:hover {
+  background-color: #d4a92d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(245, 197, 66, 0.5);
+}
+
+/* ==========================
+   RESPONSIVE DESIGN
+========================== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  .content h2 {
+    font-size: 1.6rem;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .btn-login {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .login-container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header img {
+    height: 40px;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  .content h2 {
+    font-size: 1.4rem;
+  }
+
+  .content p {
+    font-size: 0.95rem;
+  }
+
+  .btn-login {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .login-container {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .login-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-group input {
+    padding: 0.6rem;
+    font-size: 0.95rem;
+  }
+}
