@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Jurnal</title>
+    <title>Tambah Siswa</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,30 +12,26 @@
 include "koneksi.php";
 
 if (isset($_POST['simpan'])) {
+    $nama       = $_POST['nama_siswa'] ?? '';
+    $absen      = $_POST['no_absen'] ?? '';
+    $id_kelas   = $_POST['id_kelas'] ?? '';
+    $tgl_lahir  = $_POST['tgl_lahir'] ?? '';
+    $alamat     = $_POST['alamat'] ?? '';
+    $telepon    = $_POST['telepon'] ?? '';
+    $nis        = $_POST['nis'] ?? '';
 
-    $id_guru      = $_POST['id_guru'] ?? '';
-    $id_kelas     = $_POST['id_kelas'] ?? '';
-    $tgl_mengajar = $_POST['tgl_mengajar'] ?? '';
-    $materi       = $_POST['materi'] ?? '';
-    $keterangan   = $_POST['keterangan'] ?? '';
-
-    // Validasi isi form
-    if ($id_guru == '' || $id_kelas == '' || $tgl_mengajar == '' || $materi == '' || $keterangan == '') {
+    if ($nama == '' || $absen == '' || $id_kelas == '' || $tgl_lahir == '' || $alamat == '' || $telepon == '' || $nis == '') {
         echo "<div class='alert alert-danger'>⚠ Semua field harus diisi!</div>";
     } else {
+        $query = "INSERT INTO siswa (nama_siswa, no_absen, id_kelas, tgl_lahir, alamat, telepon, nis) 
+                  VALUES ('$nama', '$absen', '$id_kelas', '$tgl_lahir', '$alamat', '$telepon', '$nis')";
+        mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
 
-        // Insert jurnal
-        $query = "INSERT INTO jurnal (id_guru, id_kelas, tgl_mengajar, materi, keterangan)
-                  VALUES ('$id_guru', '$id_kelas', '$tgl_mengajar', '$materi', '$keterangan')";
-        mysqli_query($koneksi, $query);
-
-        // Catat aktivitas
         mysqli_query($koneksi,
         "INSERT INTO aktivitas (aktivitas, waktu)
-         VALUES ('Admin menambahkan jurnal baru', NOW())");
+        VALUES ('Admin menambahkan siswa baru: $nama', NOW())");
 
-        // Redirect
-        header("Location: index.php?page=jurnal&pesan=tambah");
+        header("Location: index.php?page=siswa&pesan=tambah");
         exit;
     }
 }
@@ -44,27 +40,18 @@ if (isset($_POST['simpan'])) {
 <div class="main-content">
     <div class="card">
         <div class="card-header">
-            <h2 class="page-title">➕ Tambah Jurnal</h2>
+            <h2 class="page-title">➕ Tambah Siswa</h2>
         </div>
-
         <div class="card-body">
             <form method="post" class="form">
-
-                <!-- Pilih Guru -->
                 <div class="form-group">
-                    <label class="form-label">Guru</label>
-                    <select name="id_guru" class="form-control" required>
-                        <option value="">-- Pilih Guru --</option>
-                        <?php
-                        $guru = mysqli_query($koneksi, "SELECT * FROM guru ORDER BY nama_guru ASC");
-                        while ($g = mysqli_fetch_assoc($guru)) {
-                            echo "<option value='{$g['id_guru']}'>{$g['nama_guru']}</option>";
-                        }
-                        ?>
-                    </select>
+                    <label class="form-label">Nama Siswa</label>
+                    <input type="text" name="nama_siswa" class="form-control" required>
                 </div>
-
-                <!-- Pilih Kelas -->
+                <div class="form-group">
+                    <label class="form-label">No. Absen</label>
+                    <input type="text" name="no_absen" class="form-control" required>
+                </div>
                 <div class="form-group">
                     <label class="form-label">Kelas</label>
                     <select name="id_kelas" class="form-control" required>
@@ -77,31 +64,27 @@ if (isset($_POST['simpan'])) {
                         ?>
                     </select>
                 </div>
-
-                <!-- Tanggal Mengajar -->
                 <div class="form-group">
-                    <label class="form-label">Tanggal Mengajar</label>
-                    <input type="date" name="tgl_mengajar" class="form-control" required>
+                    <label class="form-label">Tanggal Lahir</label>
+                    <input type="date" name="tgl_lahir" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Alamat</label>
+                    <textarea name="alamat" class="form-control" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Telepon</label>
+                    <input type="text" name="telepon" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">NIS</label>
+                    <input type="text" name="nis" class="form-control" required>
                 </div>
 
-                <!-- Materi -->
-                <div class="form-group">
-                    <label class="form-label">Materi</label>
-                    <input type="text" name="materi" class="form-control" placeholder="Masukkan materi..." required>
-                </div>
-
-                <!-- Keterangan -->
-                <div class="form-group">
-                    <label class="form-label">Keterangan</label>
-                    <textarea name="keterangan" class="form-control" placeholder="Masukkan keterangan..." required></textarea>
-                </div>
-
-                <!-- Tombol -->
                 <div class="form-actions">
                     <button type="submit" name="simpan" class="btn btn-primary">💾 Simpan</button>
-                    <a href="index.php?page=jurnal" class="btn btn-secondary">⬅ Kembali</a>
+                    <a href="index.php?page=siswa" class="btn btn-secondary">⬅ Kembali</a>
                 </div>
-
             </form>
         </div>
     </div>
